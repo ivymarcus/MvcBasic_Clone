@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
+    @* Bundle 在 App_Start -> BundleConfig *@
+    @Styles.Render("~/Content/css")             @* Bootstrip Bundle 動態從 BundleConfig裡呼叫  *@
+    @Scripts.Render("~/bundles/modernizr")      @* JQuery    Bundle  *@
+
+    @*  *@
+    @RenderSection("topCSS", required: false)
+    @RenderSection("topJS", required: false)
+
+</head>
+<body>
+    @* 將 Navbar 的程式碼 移至 _NavbarPartial *@
+    @Html.Partial("_NavbarPartial")
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    @*<script>
+    $(document).ready(function () {
+        $("#BtnSubmit").click(BtnSubmit);
+    });
+
+    function BtnSubmit() {
+        alert("ok");
+    };
+
+
+    function GetName() {
+        alert("hi...Bob");
+    }
+    </script>*@
+    @*  *@
+    @RenderSection("endCSS", required: false)
+    @RenderSection("endJS", required: false)
+</body>
+</html>

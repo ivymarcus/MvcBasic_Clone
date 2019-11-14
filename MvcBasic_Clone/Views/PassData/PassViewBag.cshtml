@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "PassViewBag";
+
+    // nickName 型別 為 string ， height、weight 型別 為 decimal ， married 型別 為 bool
+    var nickName = ViewBag.Nickname;
+    var height = ViewBag.Height;
+    var weight = ViewBag.Weight;
+    var married = ViewBag.Married;
+
+    int i = 0;
+}
+
+<h2>PassViewBag</h2>
+
+<ul>
+    @* C#物件 要用"@" *@
+    <li>@ViewBag.NickName</li>      @* 若在 ViewBag 裡面有 ViewData["nickname"] 會先讀取到它 *@
+
+    @* 不須轉型 與PassViewData.cshtml 比較 *@
+    <li>@ViewBag.Height</li>
+    <li>加5公分: @(ViewBag.Height + 5)</li>
+    <li>@ViewBag.Weight</li>
+    <li>加3公斤:@(ViewBag.Weight + 3)</li>
+
+    <li>@ViewBag.Married</li>
+
+
+    <li>--------------------------------</li>
+    <li>@nickName</li>
+    <li>@height</li>
+    <li>@weight</li>
+    <li>@married</li>
+</ul>
+

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "PassViewData";
+}
+
+<h2>PassViewData</h2>
+
+<ul>
+    @* C#物件 要用"@" *@
+    <li>@ViewData["Name"]</li>
+    @* 若要 年紀加1 *@
+    <li>@ViewData["Age"]</li>
+    <li>@ViewData["Age"] + 1</li>           @* @ViewData["Age"]是C#物件 、 + 1 是 html物件 *@
+    <li>@((int)ViewData["Age"] + 1)</li>    @* 需要轉型 （String型別除外） *@
+    <li>@ViewData["Single"]</li>
+</ul>
+

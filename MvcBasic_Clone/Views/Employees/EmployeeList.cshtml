@@ -1,0 +1,59 @@
+﻿@*收到什麼 型別*@
+@* 因為在 Views 資料夾底下的 Web.config 加入了 namespace(命名空間)，所以不需要 在打這麼長 *@
+@*@model IEnumerable<MvcBasic_Clone.Models.Employee>*@
+@model IEnumerable<Employee>
+
+@{
+    ViewBag.Title = "EmployeeList";
+}
+
+<h2>EmployeeList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)                 @*正統，在 Models 的 Employee.cs 上加入 [Display(Name = "???")]*@
+            @*員工編號*@                                            @*非正統，但可執行*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+            @*姓名*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+            @*電話*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+            @*郵件*@
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
